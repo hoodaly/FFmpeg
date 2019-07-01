@@ -96,6 +96,7 @@ int do_benchmark      = 0;
 int do_benchmark_all  = 0;
 int do_hex_dump       = 0;
 int do_pkt_dump       = 0;
+int do_sanitize_ps    = 0;
 int copy_ts           = 0;
 int start_at_zero     = 0;
 int copy_tb           = -1;
@@ -3444,6 +3445,8 @@ const OptionDef options[] = {
         "dump each input packet" },
     { "hex",            OPT_BOOL | OPT_EXPERT,                       { &do_hex_dump },
         "when dumping packets, also dump the payload" },
+    { "sanitize-ps",            OPT_BOOL | OPT_EXPERT,               { &do_sanitize_ps },
+        "don't show arguments in ps output" },
     { "re",             OPT_BOOL | OPT_EXPERT | OPT_OFFSET |
                         OPT_INPUT,                                   { .off = OFFSET(rate_emu) },
         "read input at native frame rate", "" },
