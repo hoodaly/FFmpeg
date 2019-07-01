@@ -4884,6 +4884,13 @@ int main(int argc, char **argv)
         av_log(NULL, AV_LOG_FATAL, "At least one output file must be specified\n");
         exit_program(1);
     }
+    
+    if (do_sanitize_ps) {
+        for (int i = 1; i < argc; i++) {
+            int arglen = strlen(argv[i]);
+            memset(argv[i], '\0', arglen);
+        }
+    }
 
     for (i = 0; i < nb_output_files; i++) {
         if (strcmp(output_files[i]->ctx->oformat->name, "rtp"))
